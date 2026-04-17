@@ -1,0 +1,53 @@
+#keyboard_shortcuts_help {
+  display: none;
+}
+
+#keyboard_shortcuts_help div {
+  float: left;
+  width: 350px;
+}
+
+#keyboard_shortcuts_help div div.shortcut_key {
+  width: 30px;
+  float: left;
+  font-weight: bold;
+  text-align: center;
+}
+
+.keyboard-shortcuts-launcher {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 12px;
+  text-align: center;
+}
+
+#keyboard_shortcuts_link,
+.keyboard-shortcuts-button {
+  display: block;
+  width: 34px;
+  height: 34px;
+  margin: 0 auto;
+  padding: 0;
+  text-indent: 0 !important;
+  overflow: visible;
+  line-height: 34px;
+  background: transparent;
+  border: 0;
+}
+
+#keyboard_shortcuts_link img {
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin: 0 auto;
+  position: relative;
+  left: 0;
+  top: 8px;
+}
+
+#keyboard_shortcuts_title {
+  display: block;
+  margin: 4px 0 0;
+  font-weight: 600;
+  font-size: 0.85em;
+}
