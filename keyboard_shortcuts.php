@@ -124,9 +124,8 @@ class keyboard_shortcuts extends rcube_plugin
         $content = "<span class='keyboard-shortcuts-launcher'>";
 
         $button_label = $this->translate('keyboard_shortcuts') . ' ' . $this->translate('show');
-        $content .= "<a id='keyboard_shortcuts_link' href='#' class='button keyboard-shortcuts-button' ";
-        $content .= "aria-haspopup='dialog' title='{$button_label}' aria-label='{$button_label}' ";
-        $content .= "onclick='return keyboard_shortcuts_show_help()'>";
+        $content .= "<a id='keyboard_shortcuts_link' href='#' class='button keyboard-shortcuts-button list-button' ";
+        $content .= "aria-haspopup='dialog' title='{$button_label}' aria-label='{$button_label}'>";
         $icon = $this->plugin_skin_asset_url('images/keyboard.png');
         $content .= "<img src='{$icon}' alt='' role='presentation' />";
         $content .= '</a>';
