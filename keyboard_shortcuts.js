@@ -19,6 +19,22 @@ $(function() {
     return key_pressed(e);
   });
 
+  // delegated click handler for desktop and mobile popupmenu
+  $(document).on('click', '.keyboard-shortcuts-launcher', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      if (typeof keyboard_shortcuts_show_help === 'function') {
+          keyboard_shortcuts_show_help();
+      }
+
+      // close the Elastic mobile popup menu if it's open
+      if (window.UI && typeof UI.close_popup === 'function') {
+          UI.close_popup($(this).closest('.popupmenu'));
+      }
+
+      return false;
+  });
 
   function key_pressed (e) {
     // special case. If we hit ctrl-enter, and we're composing, and we have focus, then send email
