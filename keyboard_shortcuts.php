@@ -142,7 +142,6 @@ class keyboard_shortcuts extends rcube_plugin
 
         $content .= '</div>';
 
-        $rcmail->output->set_env('ks_functions', array('?' => 'ks_help'));
         $p['content'] = $content . $p['content'];
 
         return $p;
