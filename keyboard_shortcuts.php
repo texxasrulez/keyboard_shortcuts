@@ -88,11 +88,25 @@ class keyboard_shortcuts extends rcube_plugin
         }
 
         $this->require_plugin('jqueryui');
+
+        // always include the global base stylesheet
         $this->include_stylesheet('keyboard_shortcuts.css');
 
-        $skin = (string) $rcmail->config->get('skin', 'elastic');
-        $skin_css = sprintf('skins/%s/keyboard_shortcuts.css', $skin);
+        // determine the skin path, supporting child themes natively if the method exists
+        if (method_exists($this, 'local_skin_path')) {
+            $skin_css = $this->local_skin_path() . '/keyboard_shortcuts.css';
+        } else {
+            // backwards compatibility fallback for older Roundcube versions
+            $skin = (string) $rcmail->config->get('skin', 'elastic');
+            $skin_css = sprintf('skins/%s/keyboard_shortcuts.css', $skin);
+        }
 
+        // fall back to the default 'elastic' skin path if the first path doesn't exist
+        if (!file_exists(__DIR__ . '/' . $skin_css)) {
+            $skin_css = 'skins/elastic/keyboard_shortcuts.css';
+        }
+
+        // load the skin-specific overrides if found
         if (file_exists(__DIR__ . '/' . $skin_css)) {
             $this->include_stylesheet($skin_css);
         }
