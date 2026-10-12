@@ -51,3 +51,10 @@
   font-weight: 600;
   font-size: 0.85em;
 }
+
+/* persist close button on mobile device */
+@media screen and (max-width: 480px) {
+  .ui-dialog .ui-dialog-titlebar-close {
+    display: block !important;
+  }
+}
