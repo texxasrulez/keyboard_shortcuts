@@ -34,17 +34,9 @@ $(function() {
 
     if (rcmail.env.action == '') {	// list mailbox
 
-      if(rcmail.env.ks_functions[e.which]) {
-        this[rcmail.env.ks_functions[e.which]]();
-        return false;
-      }
-
       switch (e.which) {
           case 63:		// ? = help
-          //keyboard_shortcuts_show_help();
-          var ks_function = rcmail.env.ks_functions[e.which];
-          this[ks_function]();
-
+          keyboard_shortcuts_show_help();
           return false;
         case 65:		// A = mark all as read
           rcmail.command('select-all', 'page');
@@ -137,8 +129,3 @@ $(function() {
     }
   }
 });
-
-// support functions for each function we support
-function ks_help() {
-  keyboard_shortcuts_show_help();
-}
