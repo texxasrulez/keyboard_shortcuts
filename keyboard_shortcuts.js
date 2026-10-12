@@ -11,7 +11,13 @@ $(function() {
     modal: false,
     resizable: false,
     width: 750,
-    title: rcmail.gettext("keyboard_shortcuts.keyboard_shortcuts")
+    title: rcmail.gettext("keyboard_shortcuts.keyboard_shortcuts"),
+    buttons: [{
+        text: rcmail.gettext("close"),
+        click: function() {
+            $(this).dialog("close");
+        }
+    }]
   });
 
   // fire up the keypress event listener
