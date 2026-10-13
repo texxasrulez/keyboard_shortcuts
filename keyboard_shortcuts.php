@@ -274,6 +274,10 @@ class keyboard_shortcuts extends rcube_plugin
 
     private function escape(string $value): string
     {
-        return htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+        // Decode any pre-existing HTML entities back to raw UTF-8 first
+        $decoded = html_entity_decode($value, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+        
+        // Safely encode for final HTML output
+        return htmlspecialchars($decoded, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
     }
 }
